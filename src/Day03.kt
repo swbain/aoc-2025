@@ -18,7 +18,6 @@ fun main() {
         return input.sumOf { it.joltage(size = 2) }
     }
 
-
     fun part2(input: List<String>): Long {
         return input.sumOf { it.joltage(size = 12) }
     }
