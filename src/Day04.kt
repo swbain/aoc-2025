@@ -1,3 +1,5 @@
+import kotlin.system.measureTimeMillis
+
 fun main() {
 
 data class Point(val x: Int, val y: Int, val isPaper: Boolean)
@@ -68,6 +70,12 @@ fun part2(input: List<String>): Int {
 
     // Read the input from the `src/Day01.txt` file.
     val input = readInput("Day04")
-    part1(input).println()
-    part2(input).println()
+    val part1 = measureTimeMillis {
+        part1(input).println()
+    }
+    val part2 = measureTimeMillis {
+        part2(input).println()
+    }
+    "part 1 took $part1 ms".println()
+    "part 2 took $part2 ms".println()
 }
