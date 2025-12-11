@@ -21,3 +21,39 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+data class Pos(val x: Int, val y: Int) {
+    operator fun plus(pos: Pos) = Pos(x = x + pos.x, y = y + pos.y)
+
+    companion object {
+        val UP = Pos(0, -1)
+        val DOWN = Pos(0, 1)
+        val LEFT = Pos(-1, 0)
+        val RIGHT = Pos(1, 0)
+    }
+}
+
+data class GridItem(val pos: Pos, val value: Char)
+
+class Grid(input: List<String>) {
+    val data = input.mapIndexed { y, line ->
+        line.mapIndexed { x, char ->
+            GridItem(
+                pos = Pos(x, y),
+                value = char
+            )
+        }
+    }
+
+    val width = data.first().count()
+    val height = data.count()
+
+    fun get(x: Int, y: Int) = data[y][x]
+
+    operator fun get(pos: Pos) = get(pos.x, pos.y)
+
+    fun contains(x: Int, y: Int) = (x in 0 until width) && (y in 0 until height)
+
+    operator fun contains(pos: Pos) = contains(pos.x, pos.y)
+}
+

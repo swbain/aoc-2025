@@ -1,6 +1,3 @@
-import utils.Grid
-import utils.Pos
-
 fun main() {
     fun part1(input: List<String>): Int {
         var output = ""
