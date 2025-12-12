@@ -33,6 +33,17 @@ data class Pos(val x: Int, val y: Int) {
     }
 }
 
+data class Posl(val x: Long, val y: Long) {
+    operator fun plus(pos: Posl) = Posl(x = x + pos.x, y = y + pos.y)
+
+    companion object {
+        val UP = Posl(0, -1)
+        val DOWN = Posl(0, 1)
+        val LEFT = Posl(-1, 0)
+        val RIGHT = Posl(1, 0)
+    }
+}
+
 data class GridItem(val pos: Pos, val value: Char)
 
 class Grid(input: List<String>) {
