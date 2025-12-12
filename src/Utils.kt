@@ -57,3 +57,5 @@ class Grid(input: List<String>) {
     operator fun contains(pos: Pos) = contains(pos.x, pos.y)
 }
 
+data class Pos3d(val x: Int, val y: Int, val z: Int)
+
