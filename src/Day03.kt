@@ -3,15 +3,11 @@ import kotlin.system.measureTimeMillis
 fun main() {
 
     fun String.joltage(size: Int): Long {
-        var jolts = ""
-        var batteries = this
-        for (i in size - 1 downTo 0) {
+        return (size - 1 downTo 0).fold("" to this) { (jolts, batteries), i ->
             val max = batteries.dropLast(i).maxOf { it.digitToInt() }.digitToChar()
             val index = batteries.indexOfFirst { it == max }
-            batteries = batteries.drop(index + 1)
-            jolts += max
-        }
-        return jolts.toLong()
+            jolts + max to batteries.drop(index + 1)
+        }.first.toLong()
     }
 
     fun part1(input: List<String>): Long {
