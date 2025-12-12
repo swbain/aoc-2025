@@ -40,7 +40,7 @@ fun main() {
 
                 cond1 && cond2 && cond3 && cond4
             }
-        }.maxOf { area(it.first, it.second) }
+        }.maxOf { (a, b) -> area(a, b) }
     }
 
     val testInput = readInput("Day09_test")
