@@ -70,3 +70,8 @@ class Grid(input: List<String>) {
 
 data class Pos3d(val x: Int, val y: Int, val z: Int)
 
+fun <T> List<T>.allCombinations(): List<Pair<T, T>> = this.indices.flatMap { n ->
+    (n + 1..this.lastIndex).map { m ->
+        Pair(this[n], this[m])
+    }
+}
