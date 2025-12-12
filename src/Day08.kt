@@ -9,10 +9,6 @@ fun main() {
         operator fun plus(circuit: Circuit): Circuit {
             return Circuit(coords = coords + circuit.coords)
         }
-
-        operator fun plus(pos: Pos3d): Circuit {
-            return Circuit(coords = coords + pos)
-        }
     }
 
     fun solution(input: List<String>, runCount: Int): Int {
